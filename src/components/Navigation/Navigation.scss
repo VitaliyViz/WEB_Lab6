@@ -1,0 +1,32 @@
+@import '../../styles/variables.scss';
+
+.navigation {
+    width: 100%;
+    background-color: $bg-color;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    .navigationMenu {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        .navigationItem {
+            color: $text-color;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+
+            &:hover {
+                background-color: $deep-blue;
+                color: $hover-text;
+            }
+        }
+    }
+}

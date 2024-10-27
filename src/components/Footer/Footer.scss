@@ -1,0 +1,38 @@
+@import '../../styles/variables.scss';
+
+.footer {
+    background: linear-gradient(86deg, $dark-green 0%, $blue 35%, $deep-blue 100%);
+    color: $text-color;
+    padding: 2rem;
+    text-align: center;
+    font-size: 1rem;
+
+    .footerContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+
+        .footerLogo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #03c885;
+        }
+
+        .footerLinks {
+            display: flex;
+            gap: 2rem;
+
+            .footerLink {
+                color: $text-color;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+        }
+
+        .footerCopy {
+            font-size: 0.875rem;
+            color: rgb(3 200 133 / 80%);
+        }
+    }
+}

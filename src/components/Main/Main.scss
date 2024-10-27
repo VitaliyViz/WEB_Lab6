@@ -1,0 +1,70 @@
+@import '../../styles/variables.scss';
+
+.main {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: $bg-color;
+    text-align: center;
+    gap: 1.5rem;
+
+    .mainTitle {
+        font-size: 2.3rem;
+        color: $text-color;
+    }
+
+    .shipCards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: center;
+
+        .shipCard {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            flex: 0 0 calc(33.333% - 4rem);
+            width: 200px;
+            padding: 1rem;
+            background-color: $bg-color;
+            border: 1px solid $deep-blue;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+            &:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+                cursor: pointer;
+            }
+        
+            .shipImage {
+                width: 100%;
+                height: auto;
+                border-radius: 4px;
+                margin-bottom: 1rem;
+            }
+    
+            .shipName {
+                font-size: 1.7rem;
+                font-weight: bold;
+                color: $blue;
+                margin: 0.5rem 0;
+            }
+    
+            .shipInfo {
+                font-size: 0.9rem;
+                color: $text-color;
+                margin: 0.3rem 0;
+            }
+    
+            .shipPrice {
+                font-size: 1.1rem;
+                font-weight: bold;
+                color: $dark-green;
+                margin-top: 1rem;
+            }
+        }
+    }
+}
