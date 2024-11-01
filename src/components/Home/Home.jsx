@@ -1,6 +1,5 @@
 import React from 'react';
 import '../Home/Home.scss';
-import placeholderImage from '../../assets/shipLogo.webp'; // Update this path based on where you store images
 
 const Home = () => {
   return (
