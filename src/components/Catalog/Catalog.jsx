@@ -1,5 +1,5 @@
 import React from 'react';
-import './Main.scss';
+import './Catalog.scss';
 import shipsData from "../../ships.json"
 
 const Main = () => {
@@ -18,6 +18,7 @@ const Main = () => {
                 </div>
             ))}
         </div>
+        <button className='mainButton'>View More</button>
     </main>
   );
 };

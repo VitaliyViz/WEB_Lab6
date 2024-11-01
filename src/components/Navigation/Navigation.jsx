@@ -1,15 +1,13 @@
 import React from 'react';
 import "../Navigation/Navigation.scss";
+import { Link } from 'react-router-dom';
 
 const Navigation = () => {
   return (
     <nav className="navigation">
-        <ul className="navigationMenu">
-            <li className="navigationItem">Shop</li>
-            <li className="navigationItem">Home</li>
-            <li className="navigationItem">About Us</li>
-            <li className="navigationItem">Contact</li>
-        </ul>
+      <Link to="/" className='navigationItem'>Home</Link>
+      <Link to="/catalog" className='navigationItem'>Catalog</Link>
+      <Link to="/cart" className='navigationItem'>Cart</Link>
     </nav>
   );
 };
