@@ -7,6 +7,8 @@ import Navigation from './components/Navigation/Navigation.jsx'
 import Catalog from './components/Catalog/Catalog.jsx'
 import Footer from './components/Footer/Footer.jsx'
 import Home from './components/Home/Home.jsx';
+import Item from './components/Item/Item.jsx';
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Router>
@@ -15,6 +17,7 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/catalog" element={<Catalog />} />
+        <Route path="/item/:id" element={<Item />} />
       </Routes>
       <Footer />
     </Router>

@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../Home/Home.scss';
 
 const Home = () => {
+  const [showMore, setShowMore] = useState(false);
+
+  const ships = [1, 2, 3];
+  const additionalShips = [4, 5, 6, 7, 8, 9];
+
+  const displayedShips = showMore ? [...ships, ...additionalShips] : ships;
+
   return (
     <main className="home">
       <div className="homeHeader">
@@ -12,8 +19,8 @@ const Home = () => {
       </div>
 
       <div className="homeTiles">
-        {[1, 2, 3].map((ship) => (
-          <div key={ship.id} className="homeTile">
+        {displayedShips.map((ship) => (
+          <div key={ship} className="homeTile">
             <img src={"https://images.unsplash.com/photo-1527685609591-44b0aef2400b?q=80&w=1933&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"} alt={`Tile ${ship}`} className="homeTileImage" />
             <h2>Ship №{ship}</h2>
             <p>Best ship ever</p>
@@ -21,7 +28,12 @@ const Home = () => {
         ))}
       </div>
 
-      <button className="viewMoreButton">View more</button>
+      <button 
+        className="viewMoreButton" 
+        onClick={() => setShowMore((prevShowMore) => !prevShowMore)}
+      >
+        {showMore ? 'Show less' : 'View more'}
+      </button>
     </main>
   );
 };

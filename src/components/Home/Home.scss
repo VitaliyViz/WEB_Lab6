@@ -6,12 +6,14 @@
   background-position: absolute;
   padding: 2rem;
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
+  box-sizing: border-box;
 
   .homeHeader {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 5rem;
 
     .homeHeaderText {
       h1 {
@@ -30,17 +32,18 @@
   }
 
   .homeTiles {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 2rem;
-    margin-top: 18rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    justify-items: center;
+    margin-bottom: 5rem;
 
     .homeTile {
+      max-width: 250px;
       padding: 1rem;
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       text-align: center;
-      max-width: 250px;
 
       .homeTileImage {
         width: 100%;
@@ -79,4 +82,3 @@
     }
   }
 }
-

@@ -47,6 +47,32 @@
             display: flex;
             gap: 2rem;
 
+            .mainFilterButton {
+                background-color: $blue;
+                color: $hover-text;
+                font-size: 1rem;
+                padding: 0.5rem 1rem;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+                font-weight: bold;
+              
+                &:hover {
+                    background-color: $dark-green;
+                    transform: scale(1.05);
+                }
+              
+                &:active {
+                    background-color: $deep-blue;
+                    transform: scale(0.95);
+                }
+              
+                &:focus {
+                    outline: 2px solid $deep-blue;
+                }
+            }
+              
             .mainSort {
                 background-color: $deep-blue;
                 color: $text-color2;

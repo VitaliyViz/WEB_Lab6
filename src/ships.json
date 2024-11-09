@@ -2,56 +2,61 @@
     {
         "id": 1,
         "name": "Titanic",
-        "weight": "52,310 tons",
+        "weight": 52.310,
         "passengers": 2435,
         "capacity": "46,312 tons",
         "image": "https://media.istockphoto.com/id/464771689/uk/%D1%84%D0%BE%D1%82%D0%BE/%D0%BE%D0%BA%D0%B5%D0%B0%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D0%B9-%D0%BB%D0%B0%D0%B9%D0%BD%D0%B5%D1%80.jpg?s=612x612&w=0&k=20&c=tIYKcDMAhEMyWnDdp7ibdECSOxuJ6Z_aTMbpAwOmnsE=",
-        "price": "$300 million"
+        "price": "$300 million",
+        "description": "Британський пасажирський пароплав. На момент побудови це був найбільший лайнер у світі. Він затонув під час свого першого рейсу із Саутгемптона до Нью-Йорка, зіткнувшись з айсбергом у ніч із 14 на 15 квітня 1912 року. Внаслідок катастрофи загинули понад 1500 людей."
     },
     {
         "id": 2,
         "name": "Queen Mary 2",
-        "weight": "79,130 tons",
+        "weight": 79.130,
         "passengers": 2620,
         "capacity": "73,856 tons",
         "image": "https://images.unsplash.com/photo-1554254648-2d58a1bc3fd5?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "price": "$400 million"
+        "price": "$400 million",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     },
     {
         "id": 3,
         "name": "Cruiseber",
-        "weight": "120,300 tons",
+        "weight": 120.300 ,
         "passengers": 6680,
         "capacity": "100,030 tons",
         "image": "https://plus.unsplash.com/premium_photo-1661917465645-6772762e570e?q=80&w=2168&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "price": "$1.35 billion"
+        "price": "$1.35 billion",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     },
     {
         "id": 4,
         "name": "Mirumsky",
-        "weight": "80,310 tons",
+        "weight": 80.310,
         "passengers": 6680,
         "capacity": "48,310 tons",
         "image": "https://images.unsplash.com/photo-1554254648-2d58a1bc3fd5?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "price": "$700 million"
+        "price": "$700 million",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     },
     {
         "id": 5,
         "name": "Vise Rose",
-        "weight": "128,400 tons",
+        "weight": 128.400 ,
         "passengers": 6680,
         "capacity": "51,000 tons",
         "image": "https://plus.unsplash.com/premium_photo-1661917465645-6772762e570e?q=80&w=2168&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "price": "$1.125 billion"
+        "price": "$1.125 billion",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     },
     {
         "id": 6,
         "name": "Symphony of the Seas",
-        "weight": "228,231 tons",
+        "weight": 228.231,
         "passengers": 6680,
         "capacity": "30,200 tons",
         "image": "https://images.unsplash.com/photo-1554254648-2d58a1bc3fd5?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "price": "$2 billion"
+        "price": "$2 billion",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     }
 ]
-  

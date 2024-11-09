@@ -1,0 +1,46 @@
+@import '../../styles/variables.scss';
+
+.itemPage {
+    background-color: $bg-color;
+    color: $text-color3;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    
+    h1 {
+      font-size: 2rem;
+      color: $blue;
+      margin-bottom: 1rem;
+    }
+  
+    .itemImage {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin-bottom: 1.5rem;
+    }
+  
+    p {
+      font-size: 1.1rem;
+      color: $text-color3;
+      margin: 0.5rem 0;
+      line-height: 1.5;
+      
+      &:last-of-type {
+        color: $text-color;
+        font-style: italic;
+      }
+    }
+  
+    .price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: $dark-green;
+      margin-top: 1rem;
+    }
+  }
