@@ -1,18 +1,39 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import ShipCard from '../ShipCard/ShipCard'; // Імпорт нового компонента
 import './Catalog.scss';
-import shipsData from "../../ships.json";
 
 const Catalog = () => {
-  const navigate = useNavigate();
-
+  const [ships, setShips] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [nameQuery, setNameQuery] = useState('');
-  const [filteredShips, setFilteredShips] = useState(shipsData);
-  const [originalOrder, setOriginalOrder] = useState(shipsData);
+  const [filteredShips, setFilteredShips] = useState([]);
+  const [originalOrder, setOriginalOrder] = useState([]);
   const [isWeightFiltered, setIsWeightFiltered] = useState(false);
 
+  useEffect(() => {
+    const fetchShips = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/ships');
+        if (!response.ok) {
+          throw new Error('Failed to fetch ships');
+        }
+        const data = await response.json();
+        setShips(data);
+        setFilteredShips(data);
+        setOriginalOrder(data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        // setLoading(false);
+        setTimeout(() => setLoading(false), 1500);
+      }
+    };
+    fetchShips();
+  }, []);
+
   const applyFilters = () => {
-    const filtered = shipsData.filter((ship) =>
+    const filtered = ships.filter((ship) =>
       ship.name.toLowerCase().includes(nameQuery.toLowerCase())
     );
     setFilteredShips(filtered);
@@ -51,24 +72,18 @@ const Catalog = () => {
             Filter by weight
           </button>
         </div>
-        <button className="mainApplyButton" onClick={applyFilters}> Apply </button>
+        <button className="mainApplyButton" onClick={applyFilters}>
+          Apply
+        </button>
       </menu>
       <div className="shipCards">
-        {filteredShips.map((ship) => (
-          <div key={ship.id} className="shipCard">
-            <img src={ship.image} alt={`${ship.name} image`} className="shipImage" />
-            <h2 className="shipName">{ship.name}</h2>
-            <p className="shipInfo">Weight: {ship.weight}k tons</p>
-            <p className="shipInfo">Capacity: {ship.capacity}</p>
-            <p className="shipPrice">{ship.price}</p>
-            <button
-              className="shipMoreInfo"
-              onClick={() => navigate(`/item/${ship.id}`)}
-            >
-              View more
-            </button>
-          </div>
-        ))}
+        {loading ? (
+          <div className="loader"></div>
+        ) : error ? (
+          <div className="error">{error}</div>
+        ) : (
+          filteredShips.map((ship) => <ShipCard key={ship.id} ship={ship} />)
+        )}
       </div>
     </main>
   );
