@@ -36,7 +36,29 @@ app.post('/ships', async (req, res) => {
 
 app.get('/ships', async (req, res) => {
     try {
-        const ships = await Ship.find();
+        let filterObject = {}
+
+        let {name, sortByWeight} = req.query
+        if (sortByWeight) {
+            sortByWeight = sortByWeight === "true"
+        }
+
+        if (name) {
+            filterObject.name = {
+                $regex: name,
+                $options: "i"
+            }
+        }
+
+        let ships;
+
+
+        if (sortByWeight) {
+            ships = await Ship.find(filterObject).sort({weight: 1});
+        } else {
+            ships = await Ship.find(filterObject);
+        }
+
         res.json(ships);
     } catch (err) {
         res.status(500).send('Помилка при отриманні кораблів: ' + err.message);

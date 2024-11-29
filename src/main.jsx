@@ -8,9 +8,13 @@ import Catalog from './components/Catalog/Catalog.jsx'
 import Footer from './components/Footer/Footer.jsx'
 import Home from './components/Home/Home.jsx';
 import Item from './components/Item/Item.jsx';
+import Cart from './components/Cart/Cart.jsx';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Provider store={store}>
     <Router>
       <Header />
       <Navigation />
@@ -18,8 +22,10 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<Home />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/item/:id" element={<Item />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
     </Router>
+    </Provider>
   </StrictMode>,
 )

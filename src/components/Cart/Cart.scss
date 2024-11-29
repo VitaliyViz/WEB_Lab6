@@ -1,0 +1,118 @@
+@import '../../styles/variables.scss';
+
+.cartEmpty {
+    font-size: 2rem;
+    text-align: center;
+    margin: 50px 0;
+    color: $text-color ;
+}
+
+.cartPage {
+    padding: 20px;
+    background-color: #f9f9f9;
+  
+    h1 {
+      text-align: center;
+      color: $text-color;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+  
+    .cartItems {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      list-style: none;
+      padding: 0;
+  
+      .cartItem {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+  
+        img {
+          width: 100%;
+          max-width: 150px;
+          height: auto;
+          border-radius: 10px; 
+          margin-bottom: 15px;
+          border: 2px solid rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+  
+        .cartItemDetails {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+  
+          h2 {
+            font-size: 1.25rem;
+            margin: 0;
+            color: #333;
+          }
+  
+          p {
+            margin: 5px 0;
+            color: #666;
+          }
+  
+          .cartItemActions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+  
+            button {
+              padding: 8px 15px;
+              border-radius: 5px;
+              font-size: 1rem;
+              cursor: pointer;
+              transition: all 0.2s ease-in-out;
+  
+              &:hover {
+                transform: scale(1.05);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+              }
+            }
+  
+            button:nth-child(2) {
+              background-color: #e8f5e9;
+              color: #2e7d32;
+              border: 1px solid #2e7d32;
+  
+              &:hover {
+                background-color: #c8e6c9;
+              }
+            }
+  
+            button:nth-child(1) {
+              background-color: #ffebee;
+              color: #c62828;
+              border: 1px solid #c62828;
+  
+              &:hover {
+                background-color: #ffcdd2;
+              }
+            }
+  
+            button:nth-child(3) {
+              background-color: #ef9a9a;
+              color: white;
+              border: none;
+  
+              &:hover {
+                background-color: #e57373;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

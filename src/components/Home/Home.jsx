@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../Home/Home.scss';
 import HomeShipCard from '../HomeShipCard/HomeShipCard';
+import axios from 'axios';
 
 const Home = () => {
   const [ships, setShips] = useState([]);
@@ -12,16 +13,13 @@ const Home = () => {
   useEffect(() => {
     const fetchShips = async () => {
       try {
-        const response = await fetch('http://localhost:5000/ships');
-        if (!response.ok) {
-          throw new Error('Failed to fetch ships');
-        }
-        const data = await response.json();
+        const response = await axios.get('http://localhost:5000/ships');
+        const data = response.data;
         setShips(data);
       } catch (error) {
         setError(error.message);
       } finally {
-        setTimeout(() => setLoading(false), 1500);
+        setTimeout(() => setLoading(false), 1000);
       }
     };
     fetchShips();
@@ -40,7 +38,7 @@ const Home = () => {
   };
 
   if (loading) {
-    return <div className="loader"></div>; // Лоадер для всього компонента
+    return <div className="loader"></div>;
   }
 
   if (error) {
@@ -62,7 +60,7 @@ const Home = () => {
 
       <div className="homeTiles">
         {displayedShips.map((ship) => (
-          <HomeShipCard key={ship.id} ship={ship} />
+          <HomeShipCard key={ship._id} ship={ship} />
         ))}
       </div>
 

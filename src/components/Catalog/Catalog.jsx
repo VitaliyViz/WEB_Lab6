@@ -1,57 +1,50 @@
 import React, { useState, useEffect } from 'react';
-import ShipCard from '../ShipCard/ShipCard'; // Імпорт нового компонента
+import ShipCard from '../ShipCard/ShipCard';
 import './Catalog.scss';
+import axios from 'axios';
 
 const Catalog = () => {
   const [ships, setShips] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [nameQuery, setNameQuery] = useState('');
-  const [filteredShips, setFilteredShips] = useState([]);
-  const [originalOrder, setOriginalOrder] = useState([]);
   const [isWeightFiltered, setIsWeightFiltered] = useState(false);
+
+  const [filterValue, setFilterValue] = useState({
+    name: '',
+    sortByWeight: false
+  })
 
   useEffect(() => {
     const fetchShips = async () => {
       try {
-        const response = await fetch('http://localhost:5000/ships');
-        if (!response.ok) {
-          throw new Error('Failed to fetch ships');
-        }
-        const data = await response.json();
+        const response = await axios.get('http://localhost:5000/ships', {
+          params: {
+            name: filterValue.name,
+            sortByWeight: filterValue.sortByWeight ? "true" : "false"
+          }
+        });
+        const data = response.data;
+
         setShips(data);
-        setFilteredShips(data);
-        setOriginalOrder(data);
       } catch (error) {
         setError(error.message);
       } finally {
-        // setLoading(false);
-        setTimeout(() => setLoading(false), 1500);
+        setTimeout(() => setLoading(false), 1000);
       }
     };
     fetchShips();
-  }, []);
+  }, [filterValue]);
+
+  console.log(ships)
 
   const applyFilters = () => {
-    const filtered = ships.filter((ship) =>
-      ship.name.toLowerCase().includes(nameQuery.toLowerCase())
-    );
-    setFilteredShips(filtered);
-    setOriginalOrder(filtered);
-    setIsWeightFiltered(false);
+    setFilterValue({
+      name: nameQuery,
+      sortByWeight: isWeightFiltered
+    })
   };
-
-  const sortByWeight = () => {
-    if (isWeightFiltered) {
-      setFilteredShips(originalOrder);
-      setIsWeightFiltered(false);
-    } else {
-      const sortedShips = [...filteredShips].sort((a, b) => b.weight - a.weight);
-      setFilteredShips(sortedShips);
-      setIsWeightFiltered(true);
-    }
-  };
-
+  
   const handleNameChange = (e) => {
     setNameQuery(e.target.value);
   };
@@ -68,9 +61,11 @@ const Catalog = () => {
             value={nameQuery}
             onChange={handleNameChange}
           />
-          <button className="mainFilterButton" onClick={sortByWeight}>
-            Filter by weight
-          </button>
+          <label htmlFor="sortShipsByWeightCheckbox">Sort by weight</label>
+          <input type="checkbox" id="sortShipsByWeightCheckbox" 
+                 checked={isWeightFiltered} 
+                 onChange={() => setIsWeightFiltered(!isWeightFiltered)}
+                 />
         </div>
         <button className="mainApplyButton" onClick={applyFilters}>
           Apply
@@ -82,11 +77,11 @@ const Catalog = () => {
         ) : error ? (
           <div className="error">{error}</div>
         ) : (
-          filteredShips.map((ship) => <ShipCard key={ship.id} ship={ship} />)
+          ships.map((ship) => <ShipCard key={ship._id} ship={ship} />)
         )}
       </div>
     </main>
   );
-};
+};1
 
 export default Catalog;
