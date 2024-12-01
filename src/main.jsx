@@ -11,6 +11,8 @@ import Item from './components/Item/Item.jsx';
 import Cart from './components/Cart/Cart.jsx';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
+import RegistrationForm from './components/Form/Form.jsx';
+import SuccessPage from './components/SuccessPage/SuccessPage.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -23,6 +25,8 @@ createRoot(document.getElementById('root')).render(
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/item/:id" element={<Item />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/register" element={<RegistrationForm />} />
+        <Route path="/success" element={<SuccessPage />} />
       </Routes>
       <Footer />
     </Router>
